@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+:root {
+    /* Ramps: charcoal (dark neutrals) */
+    --charcoal-900: #121316;
+    --charcoal-800: #1c1e23;
+    --charcoal-700: #272a31;
+    --charcoal-600: #3a3e47;
+    --charcoal-300: #a0a5b0;
+    --charcoal-50: #eceef0;
+
+    /* Ramps: steel (light neutrals) */
+    --steel-0: #ffffff;
+    --steel-100: #e4e7ec;
+    --steel-200: #d2d7e0;
+    --steel-300: #aeb6c4;
+    --steel-600: #475066;
+    --steel-900: #141b2d;
+
+    /* Ramps: navy (identity, selection, primary action in light) */
+    --navy-200: #b9cbea;
+    --navy-300: #5c84c2;
+    --navy-500: #2a5598;
+    --navy-700: #1b3a6b;
+    --navy-900: #0f1f3d;
+
+    /* Ramps: gold (logo key, highlights, primary action in dark) */
+    --gold-100: #fff1c7;
+    --gold-300: #ffd65a;
+    --gold-500: #f2b21c;
+    --gold-700: #b87b0c;
+    --gold-900: #6b4306;
+
+    /* States (same in both themes) */
+    --color-success: #2f9e6b;
+    --color-warning: #e07b2a;
+    --color-error: #d64545;
+    --color-info: #4f86d6;
+
+    /* Semantic tokens: light theme (default) */
+    --window-background: var(--steel-100);
+    --side-panel: var(--steel-200);
+    --surface: var(--steel-0);
+    --item: var(--steel-100);
+    --selected-item: var(--navy-200);
+    --selection-marker: var(--navy-700);
+    --border: var(--steel-300);
+    --text: var(--steel-900);
+    --secondary-text: var(--steel-600);
+    --primary-button: var(--navy-700);
+    --primary-button-text: var(--steel-0);
+    --focus: var(--navy-500);
+    --link: var(--navy-500);
+
+    color-scheme: light;
+}
+
+/* Dark theme: follows the OS unless a theme is forced on <html> */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --window-background: var(--charcoal-900);
+        --side-panel: var(--charcoal-800);
+        --surface: var(--charcoal-800);
+        --item: var(--charcoal-700);
+        --selected-item: var(--charcoal-700);
+        --selection-marker: var(--gold-500);
+        --border: var(--charcoal-600);
+        --text: var(--charcoal-50);
+        --secondary-text: var(--charcoal-300);
+        --primary-button: var(--gold-500);
+        --primary-button-text: var(--charcoal-900);
+        --focus: var(--gold-300);
+        --link: #7fa6e6;
+
+        color-scheme: dark;
+    }
+}
+
+:root[data-theme="dark"] {
+    --window-background: var(--charcoal-900);
+    --side-panel: var(--charcoal-800);
+    --surface: var(--charcoal-800);
+    --item: var(--charcoal-700);
+    --selected-item: var(--charcoal-700);
+    --selection-marker: var(--gold-500);
+    --border: var(--charcoal-600);
+    --text: var(--charcoal-50);
+    --secondary-text: var(--charcoal-300);
+    --primary-button: var(--gold-500);
+    --primary-button-text: var(--charcoal-900);
+    --focus: var(--gold-300);
+    --link: #7fa6e6;
+
+    color-scheme: dark;
+}
+
+body {
+    background: var(--window-background);
+    color: var(--text);
+}
+
+a {
+    color: var(--link);
+}
+
+:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
