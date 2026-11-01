@@ -1,59 +1,78 @@
-# Welcome to Your New Wails3 Project!
+# Aegis Lokr
 
-Congratulations on generating your Wails3 application! This README will guide you through the next steps to get your project up and running.
+Aplicativo desktop para organizar senhas localmente, com foco em privacidade e controle dos dados. O projeto está em desenvolvimento: a versão atual ainda é um scaffold do Wails e **não implementa armazenamento de senhas nem criptografia**.
 
-## Getting Started
+## Status
 
-1. Navigate to your project directory in the terminal.
+| Recurso | Situação |
+| --- | --- |
+| Aplicativo desktop com Wails | Scaffold inicial |
+| Interface em React e TypeScript | Tela inicial |
+| Cofre local de senhas | Planejado |
+| Grupos e subgrupos | Planejado |
+| Criptografia e senha mestra | Planejado |
+| Importação e exportação CSV | Planejado |
+| Histórico de alterações e arquivamento | Planejado |
 
-2. To run your application in development mode, use the following command:
+As funcionalidades planejadas incluem armazenamento local, organização hierárquica de credenciais, importação/exportação CSV, histórico de alterações e arquivamento. A sincronização com a nuvem está fora do escopo da primeira versão.
 
-   ```
-   wails3 dev
-   ```
+> **Atenção:** não use a versão atual para guardar credenciais reais. Ela ainda não oferece um cofre seguro.
 
-   This will start your application and enable hot-reloading for both frontend and backend changes.
+## Tecnologias
 
-3. To build your application for production, use:
+- **Desktop:** Wails v3
+- **Backend:** Go
+- **Interface:** React, TypeScript e Vite
+- **Estilos:** Tailwind CSS
 
-   ```
-   wails3 build
-   ```
+## Requisitos para desenvolvimento
 
-   This will create a production-ready executable in the `build` directory.
+- Go 1.26 ou superior
+- Node.js e npm
+- [Task](https://taskfile.dev/installation/)
+- CLI do [Wails v3](https://v3.wails.io/)
+- Dependências da WebView exigidas pelo Wails para o seu sistema operacional
 
-## Exploring Wails3 Features
+Consulte a documentação do Wails para instruções de instalação da CLI e dos requisitos específicos de cada plataforma.
 
-Now that you have your project set up, it's time to explore the features that Wails3 offers:
+## Executar em desenvolvimento
 
-1. **Check out the examples**: The best way to learn is by example. Visit the `examples` directory in the `v3/examples` directory to see various sample applications.
+Na raiz do repositório, instale os pré-requisitos acima e execute:
 
-2. **Run an example**: To run any of the examples, navigate to the example's directory and use:
+```sh
+task dev
+```
 
-   ```
-   go run .
-   ```
+O comando inicia o frontend e o aplicativo desktop em modo de desenvolvimento.
 
-   Note: Some examples may be under development during the alpha phase.
+## Compilar
 
-3. **Explore the documentation**: Visit the [Wails3 documentation](https://v3.wails.io/) for in-depth guides and API references.
+Para gerar uma build de produção para o sistema operacional atual:
 
-4. **Join the community**: Have questions or want to share your progress? Join the [Wails Discord](https://discord.gg/JDdSxwjhGf) or visit the [Wails discussions on GitHub](https://github.com/wailsapp/wails/discussions).
+```sh
+task build
+```
 
-## Project Structure
+Para empacotar a aplicação:
 
-Take a moment to familiarize yourself with your project structure:
+```sh
+task package
+```
 
-- `frontend/`: Contains your frontend code (HTML, CSS, JavaScript/TypeScript)
-- `main.go`: The entry point of your Go backend
-- `app.go`: Define your application structure and methods here
-- `wails.json`: Configuration file for your Wails project
+Os comandos de build e empacotamento dependem das ferramentas e bibliotecas exigidas pelo Wails na plataforma de destino. Consulte também as tarefas disponíveis em [`Taskfile.yml`](./Taskfile.yml).
 
-## Next Steps
+## Estrutura do projeto
 
-1. Modify the frontend in the `frontend/` directory to create your desired UI.
-2. Add backend functionality in `main.go`.
-3. Use `wails3 dev` to see your changes in real-time.
-4. When ready, build your application with `wails3 build`.
+```text
+.
+├── build/                 # Configurações e recursos de build por plataforma
+├── frontend/              # Interface React, TypeScript e Vite
+├── main.go                # Inicialização do aplicativo Wails
+├── greetservice.go        # Serviço de exemplo do scaffold
+├── go.mod                 # Dependências Go
+└── Taskfile.yml           # Tarefas de desenvolvimento, build e empacotamento
+```
 
-Happy coding with Wails3! If you encounter any issues or have questions, don't hesitate to consult the documentation or reach out to the Wails community.
+## Segurança e privacidade
+
+A meta do projeto é manter os dados localmente e funcionar offline. Esses são objetivos da versão planejada, não garantias da implementação atual. Até que o armazenamento protegido e a criptografia sejam implementados e validados, não armazene senhas neste aplicativo.
