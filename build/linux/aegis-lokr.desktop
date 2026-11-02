@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=aegis-lokr
+Exec=aegis-lokr
+Icon=aegis-lokr
+Categories=Development;
+Terminal=false
+Keywords=wails
+Version=1.0
+StartupNotify=false
